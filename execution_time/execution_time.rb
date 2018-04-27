@@ -116,7 +116,18 @@ def fourth_anagram?(str1,str2)
   hash1 == hash2
 end
 
+def two_sum?(arr, target)
+  hash = Hash.new(0)
+  arr.each { |el| hash[el] += 1}
 
+  hash.each do |k,v|
+    x = target-k
+    return true if x == k && v > 1
+    return true if hash[x] != 0 && x != k
+  end
+  false
+
+end
 
 if __FILE__ == $0
 
